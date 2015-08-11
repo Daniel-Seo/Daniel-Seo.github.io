@@ -5,7 +5,7 @@ email: jamak.kr@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
   사랑하는 사람과 세계여행을 꿈꾸는 엔지니어
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://127.0.0.1:4000" # the base hostname & protocol for your site
+url: "http://jamak.io" # the base hostname & protocol for your site
 #logourl: /assets/images/logo.png # Site logo
 author: "Daniel Seo"
 author_thumbnail: "/assets/images/daniel.png" # Author avatar
