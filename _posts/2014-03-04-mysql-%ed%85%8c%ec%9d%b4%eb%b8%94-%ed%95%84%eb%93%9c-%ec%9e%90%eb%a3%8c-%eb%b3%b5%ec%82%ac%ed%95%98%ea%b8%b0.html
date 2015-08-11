@@ -1,0 +1,22 @@
+---
+layout: post
+title: mysql 테이블 필드 자료 복사하기
+date: 2014-03-04 12:16:58.000000000 +09:00
+categories:
+- mySQL
+tags:
+- data copy
+- field copy
+- mysql
+- "필드복사"
+---
+<p>mysql에서 같은 테이블의 필드값을 다른 필드로 복사 할 경우가 있습니다.<br />
+해당 경우는 아래와 같은 쿼리로 값을 복사 할 수가 있습니다.</p>
+<p>* table name : table_a<br />
+* new_field : 데이터를 복사할 새(다른)필드<br />
+* old_field : 기존 필드</p>
+<pre class="theme:github lang:mysql decode:true ">update table_a A INNER JOIN table_a B
+on A.ID = B.ID
+set A.new_filed = A.old_field
+where A.ID = B.ID;</pre>
+<p>&nbsp;</p>

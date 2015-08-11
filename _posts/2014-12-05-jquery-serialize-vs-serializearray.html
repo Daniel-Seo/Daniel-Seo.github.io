@@ -1,0 +1,33 @@
+---
+layout: post
+title: jQuery serialize() Vs serializeArray()
+date: 2014-12-05 22:28:50.000000000 +09:00
+categories:
+- Javascript
+tags:
+- jquery
+- serialize
+- serializearray
+---
+<p>먼저 serialize()  와 serializeArray()는 폼 컨트롤 (input, select, textarea 등)의 자료를 name, value 형태로 넘길때 유용하게 사용할 수 있다.</p>
+<p>ajax를 활용하여 아래와 같이 폼 데이터를 전송할때 사용하면 좋다.</p>
+<pre class="lang:js decode:true ">function submit_form(){
+ 
+ $.ajax({
+   method: 'POST',
+   data: $('#form').serialize(), // $('#form').serializeArray()
+   url: 'targetUrl',
+   
+   success: function(data){
+    // Do Something for success
+   }, error: function(data){
+    // Do something for error
+   }
+  });
+
+}</pre>
+<p>serialize() 로 넘기면 name=value&amp;name=value&amp;name=value... 형태로 넘어 가고,</p>
+<p>serializeArray() 로 넘기면 { (name: "name1" , value: "value1"), ( name: "name2", value: "value2") ... } 형태로 넘어 간다.</p>
+<p>query string 과 query array 의 차이로 이해 하면 될 듯.</p>
+<p>* 반드시 &lt;form&gt; 안의 값이 아니여도 되고 특정 태그가 감싸고 있는 폼 컨트롤들을 넘길 수 있다.</p>
+<p>* name 과 value 가 둘 다 존재하는 폼 컨트롤만 넘겨 준다.</p>

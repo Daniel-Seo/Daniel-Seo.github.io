@@ -1,27 +1,26 @@
 # Site settings
-title: Your awesome title
-tagline: And Tagline
-email: gayanvirajith@gmail.com
+title: 살며 사랑하며 Daniel Seo 
+tagline: Kmong
+email: jamak.kr@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  Hi, I’m a professional UI/UX designrer and web developer. 
-  I love being minimal and creative.
-baseurl: "/gaya" # the subpath of your site, e.g. /blog/
-url: "http://gayan.me" # the base hostname & protocol for your site
-logourl: /assets/images/logo.png # Site logo
-author: "Tom Warlker"
-author_thumbnail: "/assets/images/avatar.jpg" # Author avatar
+  사랑하는 사람과 세계여행을 꿈꾸는 엔지니어
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://127.0.0.1:4000" # the base hostname & protocol for your site
+#logourl: /assets/images/logo.png # Site logo
+author: "Daniel Seo"
+author_thumbnail: "/assets/images/daniel.png" # Author avatar
 # Theme customization - please change from the defaults!
 theme:
   # Color for sidebar bar, links, etc
   highlight_color: "#205081" #205081" # "#272935"
   # Social media links, leave blank to ignore
   social: 
-    github: gayanvirajith
-    twitter: gayanvirajith
-    facebook: gayanvirajith
-    gplus: +gayanvirajith
+    github: Daniel-Seo
+    twitter: iamjamak
+    facebook: iamjamak
+    #gplus: +gayanvirajith
     # dribble: gayanvirajith
-    pinterest: gayanvirajith
+    #pinterest: gayanvirajith
 
   # Enable share buttons on post footer
   show_share_buttons: true

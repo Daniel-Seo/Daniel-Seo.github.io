@@ -1,0 +1,40 @@
+---
+layout: post
+title: sendmail 옵션 설정으로 빠르게 보내기
+date: 2014-06-10 14:38:35.000000000 +09:00
+categories:
+- PHP
+tags:
+- sendmail
+- sendmail background
+- sendmail 비동기
+- sendmail 속도
+---
+<p>php에서 mail() 함수를 통해 메일을 보낼때 sendmail 을 이용한다.</p>
+<p>mail() 함수 호출이 빈번이 일어난다면 매번 sendmail이 마칠때 까지 기다리기 때문에 속도가 느려진다.</p>
+<p>이럴때 php.ini 에서 sendmail 명령어의 옵션중 background로 변경하면 속도를 빠르게 할 수 있다.</p>
+<p>먼저 php.ini 을 열먼 다음과 같이 기본 설정값이 있다.</p>
+<pre class="theme:github lang:default decode:true">; For Unix only.  You may supply arguments as well (default: "sendmail -t -i").
+; http://www.php.net/manual/en/mail.configuration.php#ini.sendmail-path
+sendmail_path = /usr/sbin/sendmail -t -i</pre>
+<p>맨 뒷부분에 DeliveryMode의 옵션값을 지정해 줄 수 있다.</p>
+<p>옵션같은 4가지가 있다.</p>
+<ul>
+<li>interactively : Mail Queue 에 있는 메일들을 동기화 모드로 작동시켜 메일을 전송</li>
+<li>background : Mail Queue 에 있는 메일들을 비동기화 모드로 작동시켜 메일을 전송</li>
+<li>queue : 메일을 수신하여 Queue 에 저장</li>
+<li>defer : 메일을 수신하여 최대한 빨리 Queue 에 저장 (sendmail 8.7 version 이상에서 작동)</li>
+</ul>
+<p>옵션 설정 방법은 sendmail version 별로 나뉜다</p>
+<pre class="theme:github lang:default decode:true">-ODeliveryMode=mode - V8.7 이상
+-odmode - 구 버젼 (확인된 버젼은 8.13.8) 
+mode에 각 옵션의 앞글자를 넣으면 된다</pre>
+<p>최종적으로 변경된 값은</p>
+<pre class="theme:github lang:default decode:true">; For Unix only.  You may supply arguments as well (default: "sendmail -t -i").
+; http://www.php.net/manual/en/mail.configuration.php#ini.sendmail-path
+sendmail_path = /usr/sbin/sendmail -t -i -odb</pre>
+<p>&nbsp;</p>
+<p>- 끝 -</p>
+<p>&nbsp;</p>
+<p>참고 : <a href="http://docstore.mik.ua/orelly/other/Sendmail_3rd/1565928393_ch24-73590.html">http://docstore.mik.ua/orelly/other/Sendmail_3rd/1565928393_ch24-73590.html</a></p>
+<p>&nbsp;</p>

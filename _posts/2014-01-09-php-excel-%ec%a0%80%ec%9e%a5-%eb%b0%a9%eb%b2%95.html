@@ -1,0 +1,40 @@
+---
+layout: post
+title: php excel 저장 방법
+date: 2014-01-09 19:00:25.000000000 +09:00
+categories:
+- PHP
+tags:
+- excel
+- php
+- "내보내기"
+- "엑셀"
+---
+<p>php에서 excel로 export 하는 방법</p>
+<p>아래 코드를 추가하고</p>
+<p>&nbsp;</p>
+<pre class="lang:default decode:true">&lt;?php
+$file_name = date("Y-m-d") . "-리스트.xls";
+		    header("Pragma:");
+		    header("Cache-Control:");
+		    header("Content-Type: application/vnd.ms-excel");
+		    header("Content-Disposition: attachment; filename=$file_name");
+		    header("Content-Description: PHP5 Generated Data");
+?&gt;</pre>
+<p>&nbsp;</p>
+<p>필요하다면 db에서 data를 불러와서 html table에 뿌려주면 자동으로 엑셀파일로 다운로드 됩니다.<br />
+아래 style 을 추가한 이유는 숫자가 길어질 경우 데이터 원본대로 뿌려주기 위한 style 입니다.<br />
+필요하신 행에 추가해주시면 됩니다.</p>
+<p>&nbsp;</p>
+<pre class="lang:default decode:true">&lt;html&gt; 
+&lt;style&gt; .banknumber{ mso-number-format:\@; } &lt;/style&gt;
+&lt;body&gt;
+	&lt;table cellspacing=0 cellpadding=0 border=1&gt;
+          &lt;tr align='center'&gt;
+		&lt;td&gt;자료1&lt;/td&gt;
+		&lt;td class="banknumber"&gt;자료2&lt;/td&gt;
+          &lt;/tr&gt;
+	&lt;/table&gt;
+&lt;/body&gt; 
+&lt;/html&gt;</pre>
+<p>&nbsp;</p>

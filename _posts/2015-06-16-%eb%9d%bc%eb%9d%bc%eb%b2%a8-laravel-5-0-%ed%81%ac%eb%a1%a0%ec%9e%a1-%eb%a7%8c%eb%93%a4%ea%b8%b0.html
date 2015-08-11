@@ -1,0 +1,57 @@
+---
+layout: post
+title: "라라벨 (Laravel) 5.0 크론잡 만들기"
+date: 2015-06-16 11:01:38.000000000 +09:00
+categories:
+- PHP
+tags:
+- cron
+- laravel
+- php framework
+- "라라벨"
+- "크론탭"
+---
+<h2>linux + php 환경에서 크론잡은 귀찮다.</h2>
+<p>crontab에 초 분 시 일 주 등의 단위로 일일이 추가를 해줘야 한다.<br />
+또한 프로젝트와 크론을 별도로 관리해야 하기 때문에 번거롭다.<br />
+라라벨에서는 이런 수고를 쉽게 해결할 수 있다.</p>
+<h2>라라벨에서 크론잡 만들기</h2>
+<p>App\Console을 살펴보면 크게 2가지로 분류된다.<br />
+Kernel.php 와 Commands 디렉토리<br />
+Commands 디렉토리에 있는 command 파일을 Kernel에 등록하고 크론잡에 매 1분마다 라라벨의 커멘드를 실행하면 kernel에 등록된 command 들이 설정한 값 별로 실행이 되는 원리이다.</p>
+<h3>1. Commands 생성하기</h3>
+<pre class="lang:default decode:true ">daniel$ php artisan make:command Test</pre>
+<p>Command 파일은 크게 3가지로 볼 수 있다.</p>
+<pre class="lang:php decode:true">protected $name = 'artisan 에서 실행하는 이름';
+
+protected $description = 'command에 대한 설명';
+
+public function handle()
+{
+ // 해당 커맨드가 처리하는 부분
+}
+</pre>
+<h3>2. Kernel.php 에 추가하기</h3>
+<pre class="lang:default decode:true">protected $commands = [
+	'App\Console\Commands\Test',
+];
+
+protected function schedule(Schedule $schedule)
+{
+$schedule-&gt;command('test')
+	-&gt;environments('production')
+	-&gt;everyFiveMinutes();
+}</pre>
+<p>문법은 $schedule-&gt;command('커맨드이름')-&gt;반복될 시간 으로 구성되고 추가적으로 enviroments(실행환경)을 추가할 수도있다.<br />
+반복될 시간은 기본적으로 제공해주는 every(시간,일,주,요일 등)이 있고 만약 정확한 시간을 정해주고 싶다면 dailyAt('00:01')으로 지정할 수도있다.<br />
+<a href="http://laravel.com/docs/5.0/artisan#scheduling-artisan-commands" target="_blank">참고:http://laravel.com/docs/5.0/artisan#scheduling-artisan-commands<br />
+</a></p>
+<h3>3. 실행하기</h3>
+<p>만약 개별적으로 커맨드를 실행해 보고 싶다면</p>
+<pre class="lang:default decode:true ">daniel$ php artisan list
+
+daniel$ php artisan test</pre>
+<p>list에 kernel 에 추가된 커맨드를 확인할 수 있고 해당 커맨드를 artisan으로 바로 실행해 볼 수있다.</p>
+<p>마지막으로 설정된 커맨드들을 서버 크론탭에 아래와 같이 지정해주면 된다.</p>
+<pre class="lang:default decode:true ">* * * * * php /path/to/artisan schedule:run 1&gt;&gt; /dev/null 2&gt;&amp;1</pre>
+<p>&nbsp;</p>

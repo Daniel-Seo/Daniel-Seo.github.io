@@ -1,0 +1,30 @@
+---
+layout: post
+title: "[node.js] blocking vs non-blocking"
+date: 2014-05-27 20:53:08.000000000 +09:00
+categories:
+- Javascript
+tags: []
+---
+<ul>
+<li>Blocking Code<br />
+<blockquote><p>Read file from Filesystem, set equal to "contents"<br />
+Print contents<br />
+Do something else</p>
+<pre class="lang:default decode:true  ">var contents = fs.readFileSync('/etc/hosts'); // 해당 파일을 읽는다
+console.log(contents); // 해당 파일을 다 읽으면 contents를 출력한다
+console.log('Doing something else'); // contents를 다 출력하고 로그를 출력한다</pre>
+<p>&nbsp;</p></blockquote>
+</li>
+<li>Non-Blocking Code<br />
+<blockquote><p>Read file from Filesystem<br />
+<em>  <strong>whenever you're complete, print the contents ("callback")</strong></em><br />
+Do something else</p>
+<pre class="lang:default decode:true">var callback = function(err, contents) {
+    console.log(contents);
+}
+fs.readFile('/etc/hosts', callback); // 해당 파일을 다 읽으면 callback 한다
+console.log('Doing somethings else'); // 만약 위에 해당 파일의 크기가 커서 다 읽지 않더라도 로그가 출력된다.</pre>
+<p>&nbsp;</p></blockquote>
+</li>
+</ul>

@@ -1,0 +1,33 @@
+---
+layout: post
+title: "라라벨(Laravel) 5.0 - csrf 토큰 적용하기"
+date: 2015-05-27 15:58:43.000000000 +09:00
+categories:
+- PHP
+tags:
+- csrf
+- laravel
+- laravel framework
+- "라라벨"
+---
+<h2><a href="http://en.wikipedia.org/wiki/Cross-site_request_forgery">csrf (Cross-site Request Forgery)</a></h2>
+<p>라라벨은 사이트 해킹방법 중 csrf에 대한 대비를 아주 간단하게 도와준다.<br />
+기본적으로 제공해주는 Middleware 중 VerifyCsrfToken.php 를 이용하면 된다.</p>
+<h2>적용하기</h2>
+<p>먼저 설명할 방법은 router에서 middleware 로 요청이 들어 올 경우 csrf token을 검증하는 방법이다.<br />
+1.kernel.php 의 $routeMiddleware에 아래와 같이 추가한다</p>
+<pre class="lang:php decode:true ">protected $routeMiddleware = [
+		'auth' =&gt; 'App\Http\Middleware\Authenticate',
+		'auth.basic' =&gt; 'Illuminate\Auth\Middleware\AuthenticateWithBasicAuth',
+		'guest' =&gt; 'App\Http\Middleware\RedirectIfAuthenticated',
+		'csrf' =&gt; 'App\Http\Middleware\VerifyCsrfToken',
+...
+];</pre>
+<p>2. 프로젝트 디렉토리의 console 에서 $composer dump-autoload</p>
+<p>3. 사용할 router 에 middleware를 추가</p>
+<pre class="lang:php decode:true ">Route::post('login', ['middleware' =&gt; 'csrf', 'uses' =&gt; 'YouCannotLoginContrller@login']);</pre>
+<p>4. view 파일에서 아래와 같이 사용하면 자동으로 '_token' 이라는 hidden 의 input을 생성해주고 key값은 자동으로 토큰이 생성된다.</p>
+<pre class="lang:php decode:true">{{ Form::open() }}
+
+{{ Form::close() }}</pre>
+<p>이렇게 되면 해당 router로 들어오는 모든 요청을 _token 값을 검증하여 실제 서버에서 생성된 토큰인지 아닌지 구분하여 실제 존재하는 토큰인 경우에만 코드를 실행한다.</p>

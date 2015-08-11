@@ -1,0 +1,39 @@
+---
+layout: post
+title: jQuery append 와 after 의 차이
+date: 2014-12-04 16:59:52.000000000 +09:00
+categories:
+- Javascript
+tags:
+- after
+- append
+- jquery
+---
+<p>append 와 after 모두 jQuery 에서 동적으로 html tag 를 넣을 때 사용한다.</p>
+<h2>1. <a href="http://api.jquery.com/append/" target="_blank">append</a></h2>
+<pre class="lang:xhtml decode:true " title="jQuery append">&lt;div id="target"&gt;
+ &lt;div&gt;already exist div&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+$('#target').append('&lt;div&gt;appended div&lt;/div&gt;');
+&lt;/script&gt;
+
+&lt;div id="target"&gt;
+ &lt;div&gt;already exist div&lt;/div&gt;
+ &lt;div&gt;appended div&lt;/div&gt;
+&lt;/div&gt;</pre>
+<h2>2. <a href="http://api.jquery.com/after/" target="_blank">after</a></h2>
+<pre class="lang:default decode:true ">&lt;div id="target"&gt;
+ &lt;div&gt;already exist div&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+$('#target').after('&lt;div&gt;after div&lt;/div&gt;');
+&lt;/script&gt;
+
+&lt;div id="target"&gt;
+ &lt;div&gt;already exist div&lt;/div&gt;
+&lt;/div&gt;
+&lt;div&gt;after div&lt;/div&gt;</pre>
+<p>&nbsp;</p>
