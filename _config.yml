@@ -32,7 +32,7 @@ theme:
   # disqus_shortname: gaya-webcreate
 
   # Google Analytics/Webmaster key, leave blank to ignore
-  google_analytics_key: 
+  google_analytics_key: UA-78885226-1 
   google_webmaster_key: 
 
 # Build settings
@@ -58,3 +58,5 @@ exclude:
 sass:
   sass_dir: assets/css/_sass
   style: :compressed
+
+gems: [jekyll-paginate]
