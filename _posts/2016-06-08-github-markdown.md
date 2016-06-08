@@ -9,8 +9,8 @@ tags:
 - Markdown
 ---
 
-마크다운에 관한 간단한 설명입니다. 일반적인 마크다운 문법을 나열했으며 Github 에서 사용할 수 있는 문법은  
-[이곳](https://guides.github.com/features/mastering-markdown/)에서 보실 수 있습니다.  
+마크다운에 관한 간단한 설명입니다. 일반적인 마크다운 문법을 나열했으며 Github 에서만 사용할 수 있는 특별한 문법은  
+[이곳](https://guides.github.com/features/mastering-markdown/#GitHub-flavored-markdown)에서 보실 수 있습니다.  
 <strong>Github 에서 설명해둔 마크다운 문법중 필요하다고 생각하는 것만 번역하였습니다.</strong>  
 
 <div class="message">
@@ -91,7 +91,7 @@ tags:
 ```
 > 미안해 하지 마라,누구도 원망하지 마라,운명이다.  
 
-이 외에 Github에서 사용할 수 있는 더 많은 문법은 다시 한 번 [이곳](https://guides.github.com/features/mastering-markdown/)에서 보실 수 있습니다.  
+이 외에 Github에서 사용할 수 있는 더 많은 문법은 다시 한 번 [이곳](https://guides.github.com/features/mastering-markdown/#GitHub-flavored-markdown)에서 보실 수 있습니다.  
 감사합니다.
 
 
