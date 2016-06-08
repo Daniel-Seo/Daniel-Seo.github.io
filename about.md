@@ -1,24 +1,11 @@
 ---
 layout: page
-title: About me
-permalink: /about/
-banner_image: sample-banner-image-2.jpg
-banner_image_alt: About me
+title: About
 ---
 
-Hi, I am Tom Warlker. I am a professional UI/UX designrer and web developer. I love being minimal and creative.
+<p class="message">
+  사랑하는 사람과 세계여행을 꿈꾸는 개발자이자, 남편이자, 두 딸의 아빠입니다.
+</p>
 
-I prefer to serve with Php and Ruby based stacks and also love to work 
-on [Jekyll][jekyll] and [Processwire CMS/CMF][pw].
-
-### Contact me
-
-Say `Hello` at gayanvirajith@gmail.com or find
-me on
-
----
-
-{% include social.html %}
-
-[pw]: http://processwire.com
-[jekyll]: http://jekyllrb.com
+* [크몽](https://kmong.com)이라는 서비스 마켓플레이스에서 개발자로 근무중입니다.
+* 저녁에는 [Twitch 채널](http://twitch.com/jamak_kr)에서 게임 방송을 하고 있습니다.

@@ -20,10 +20,16 @@ tags:
 <p>App\Console을 살펴보면 크게 2가지로 분류된다.<br />
 Kernel.php 와 Commands 디렉토리<br />
 Commands 디렉토리에 있는 command 파일을 Kernel에 등록하고 크론잡에 매 1분마다 라라벨의 커멘드를 실행하면 kernel에 등록된 command 들이 설정한 값 별로 실행이 되는 원리이다.</p>
+
 <h3>1. Commands 생성하기</h3>
-<pre class="lang:default decode:true ">daniel$ php artisan make:command Test</pre>
+
+{% highlight shell %}
+daniel$ php artisan make:command Test
+{% endhighlight %}
+
 <p>Command 파일은 크게 3가지로 볼 수 있다.</p>
-<pre class="lang:php decode:true">protected $name = 'artisan 에서 실행하는 이름';
+{% highlight php startinline=1 %}
+protected $name = 'artisan 에서 실행하는 이름';
 
 protected $description = 'command에 대한 설명';
 
@@ -31,18 +37,23 @@ public function handle()
 {
  // 해당 커맨드가 처리하는 부분
 }
-</pre>
+{% endhighlight %}
+
 <h3>2. Kernel.php 에 추가하기</h3>
-<pre class="lang:default decode:true">protected $commands = [
+
+{% highlight php start_inline=1 %}
+protected $commands = [
 	'App\Console\Commands\Test',
 ];
 
 protected function schedule(Schedule $schedule)
 {
-$schedule-&gt;command('test')
-	-&gt;environments('production')
-	-&gt;everyFiveMinutes();
-}</pre>
+$schedule->command('test')
+	->environments('production')
+	->everyFiveMinutes();
+}
+{% endhighlight %}
+
 <p>문법은 $schedule-&gt;command('커맨드이름')-&gt;반복될 시간 으로 구성되고 추가적으로 enviroments(실행환경)을 추가할 수도있다.<br />
 반복될 시간은 기본적으로 제공해주는 every(시간,일,주,요일 등)이 있고 만약 정확한 시간을 정해주고 싶다면 dailyAt('00:01')으로 지정할 수도있다.<br />
 <a href="http://laravel.com/docs/5.0/artisan#scheduling-artisan-commands" target="_blank">참고:http://laravel.com/docs/5.0/artisan#scheduling-artisan-commands<br />

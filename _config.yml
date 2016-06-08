@@ -1,62 +1,28 @@
-# Site settings
-title: 살며 사랑하며 Daniel Seo 
-tagline: Kmong
-email: jamak.kr@gmail.com
-description: > # this means to ignore newlines until "baseurl:"
-  사랑하는 사람과 세계여행을 꿈꾸는 엔지니어
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://jamak.io" # the base hostname & protocol for your site
-#logourl: /assets/images/logo.png # Site logo
-author: "Daniel Seo"
-author_thumbnail: "/assets/images/daniel.png" # Author avatar
-# Theme customization - please change from the defaults!
-theme:
-  # Color for sidebar bar, links, etc
-  highlight_color: "#205081" #205081" # "#272935"
-  # Social media links, leave blank to ignore
-  social: 
-    github: Daniel-Seo
-    twitter: iamjamak
-    facebook: iamjamak
-    #gplus: +gayanvirajith
-    # dribble: gayanvirajith
-    #pinterest: gayanvirajith
-
-  # Enable share buttons on post footer
-  show_share_buttons: true
-
-  # Show author picure, name and social links on post footer
-  show_author_info: true
-
-  # Disqus comments manager - shortname
-  disqus_shortname: jamak
-
-  # Google Analytics/Webmaster key, leave blank to ignore
-  google_analytics_key: UA-78885226-1 
-  google_webmaster_key: 
-
-# Build settings
+# Dependencies
 markdown: kramdown
+highlighter: rouge
 
 # Permalinks
 permalink:        pretty
 
-# Pagination config
-paginate: 5
+# Setup
+title:            살며 사랑하며
+tagline:          'Daniel Seo'
+description:      '사랑하는 사람과 세계여행을 꿈꾸는 엔지니어'
+url:              http://jamak.io
+baseurl:          /
 
-# Files/Folders to be excluded from generated _site folder
-exclude: 
-  - CNAME
-  - Gemfile
-  - Rakefile
-  - README.md
-  - .gitignore
-  - .sass-cache
-  - Gemfile.lock
+author:
+  name:           'Daniel Seo'
+  url:            http://jamak.io
 
-# Sass conversion configs
-sass:
-  sass_dir: assets/css/_sass
-  style: :compressed
+paginate:         5
+paginate_path: "page:num"
+
+# Custom vars
+version:          0.1.0
+
+github:
+  repo:           https://github.com/Daniel-Seo
 
 gems: [jekyll-paginate]
